@@ -23,16 +23,19 @@ function App() {
     setAiResponse('');
 
     try {
-      const response = await fetch('http://localhost:3001/api/generate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          task: selectedTask,
-          inputText: inputText,
-        }),
-      });
+      const response = await fetch(
+        'https://generative-ai-content-assistant.onrender.com/api/generate',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            task: selectedTask,
+            inputText: inputText,
+          }),
+        }
+      );
 
       const data = await response.json();
 
